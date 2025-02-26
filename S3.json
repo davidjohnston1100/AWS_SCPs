@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Deny",
+        "Action": [
+          "s3:PutBucketPublicAccessBlock",
+          "s3:PutAccountPublicAccessBlock"
+        ],
+        "Resource": "*",
+        "Condition": {
+          "StringNotLike": {
+            "aws:PrincipalARN": [
+              "arn:aws:iam::*:role/stacksets-exec-d00eef351eb4e287a34f4d59ef9234b5"
+            ]
+          }
+        }
+      }
+    ]
+  }
